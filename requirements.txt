@@ -5,7 +5,6 @@ dnspython==2.3.0
 fastapi==0.92.0
 idna==3.4
 Pillow==9.4.0
-pydantic==1.10.5
 pymongo==4.3.3
 python-multipart==0.0.6
 requests==2.28.2
