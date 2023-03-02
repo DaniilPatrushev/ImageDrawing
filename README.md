@@ -44,6 +44,6 @@ docker run -p 127.0.0.1:8000:8000 --env-file=env.txt --name=PROD -d imagedrawing
 ```
 
 ## TODO
-- [Х] Add multiface recognition.
+- [X] Add multiface recognition.
 - [ ] Add volume option to container to save all downloaded pictures.
 - [ ] Deploy.
