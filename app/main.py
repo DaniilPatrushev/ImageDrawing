@@ -75,7 +75,7 @@ async def image_color(image_id: str, color: str = 'red'):
         image_path = get_image_path(image_id=image_id, image_format=image_from_database['format'])
         image = Image.open(image_path)
     except TypeError:
-        raise HTTPException(status_code=412, detail='ID IS NOT EXISTS')
+        raise HTTPException(status_code=412, detail='ID IS NOT EXISTED')
 
     # Outlines the contour of the face
     draw = ImageDraw.Draw(image)
@@ -112,7 +112,7 @@ async def replace_image(image_id: str, image: bytes = File(...)):
 
     collection = deleting_images(image_id)
     if collection is None:
-        raise HTTPException(status_code=412, detail='ID IS NOT EXISTS')
+        raise HTTPException(status_code=412, detail='ID IS NOT EXISTED')
 
     response = requests.post(url=URL, params=params, files={'image_file': image}).json()
     if 'error_message' in response:
@@ -142,5 +142,5 @@ def delete_image(image_id: str):
     """
 
     if deleting_images(image_id) is None:
-        raise HTTPException(status_code=412, detail='ID IS NOT EXISTS')
+        raise HTTPException(status_code=412, detail='ID IS NOT EXISTED')
     return JSONResponse({'id': 'Image is successfully deleted'})
