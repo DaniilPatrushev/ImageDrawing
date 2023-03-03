@@ -32,7 +32,6 @@ async def get_image(image: bytes = File(...)):
     response = requests.post(url=URL, params=params, files={'image_file': image}).json()
     if 'error_message' in response:
         raise HTTPException(status_code=400, detail=response['error_message'])
-    print(response)
     if not len(response['faces']):
         raise HTTPException(status_code=406, detail='NO FACE ON IMAGE')
     image_id = response['image_id']
